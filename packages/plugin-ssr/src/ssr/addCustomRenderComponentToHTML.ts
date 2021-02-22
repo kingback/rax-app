@@ -65,11 +65,6 @@ export default function addCustomRenderComponentToHTML(
     }
 
     $.insertScript(${JSON.stringify(injectedHTML.scripts || [])});
-
-    if (html.indexOf('window.__INITIAL_DATA__=') < 0) {
-      $.insertScript('<script data-from="server">window.__INITIAL_DATA__=' + JSON.stringify(data) + '</script>')
-    }
-
     return '${doctype || ''}' + $.html();
   };
   `;
